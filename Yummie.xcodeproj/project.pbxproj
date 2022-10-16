@@ -16,6 +16,8 @@
 		4821D55F28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D55D28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift */; };
 		4821D56028FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4821D55E28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib */; };
 		4821D56228FB8BC400D2CB91 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D56128FB8BC400D2CB91 /* Dish.swift */; };
+		4821D56528FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D56328FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.swift */; };
+		4821D56628FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4821D56428FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.xib */; };
 		48364C0028F4C1C600E5DBE6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48364BFF28F4C1C600E5DBE6 /* OnboardingViewController.swift */; };
 		48364C0428F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48364C0328F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift */; };
 		48364C0628F4C28100E5DBE6 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48364C0528F4C28100E5DBE6 /* OnboardingSlide.swift */; };
@@ -39,6 +41,8 @@
 		4821D55D28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishPortraitCollectionViewCell.swift; sourceTree = "<group>"; };
 		4821D55E28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishPortraitCollectionViewCell.xib; sourceTree = "<group>"; };
 		4821D56128FB8BC400D2CB91 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		4821D56328FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishLandscapeCollectionViewCell.swift; sourceTree = "<group>"; };
+		4821D56428FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishLandscapeCollectionViewCell.xib; sourceTree = "<group>"; };
 		48364BFF28F4C1C600E5DBE6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		48364C0328F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		48364C0528F4C28100E5DBE6 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				4821D54F28FB604E00D2CB91 /* CategoryCollectionViewCell.xib */,
 				4821D55D28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift */,
 				4821D55E28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib */,
+				4821D56328FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.swift */,
+				4821D56428FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				489AA98028F1E93C00787E3B /* LaunchScreen.storyboard in Resources */,
 				4821D56028FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib in Resources */,
 				489AA97D28F1E93C00787E3B /* Assets.xcassets in Resources */,
+				4821D56628FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.xib in Resources */,
 				489AA97B28F1E93900787E3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +323,7 @@
 				4821D55728FB751C00D2CB91 /* HomeViewController.swift in Sources */,
 				48364C0028F4C1C600E5DBE6 /* OnboardingViewController.swift in Sources */,
 				489AA97628F1E93900787E3B /* SceneDelegate.swift in Sources */,
+				4821D56528FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.swift in Sources */,
 				4821D55028FB604E00D2CB91 /* CategoryCollectionViewCell.swift in Sources */,
 				4821D55A28FB83ED00D2CB91 /* CardView.swift in Sources */,
 				48364C0428F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift in Sources */,

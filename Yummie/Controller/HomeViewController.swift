@@ -9,10 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var categoryCollectionView: UICollectionView!
-    
-    @IBOutlet weak var popularCollectionView: UICollectionView!
-    
+    @IBOutlet weak var categoryCollectionView : UICollectionView!
+    @IBOutlet weak var popularCollectionView  : UICollectionView!
+    @IBOutlet weak var specialsCollectionView : UICollectionView!
     
     var categories:[DishCategory] = [
         .init(id: "id 1", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
@@ -40,6 +39,20 @@ class HomeViewController: UIViewController {
         .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
     ]
     
+    var specials : [Dish] = [
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -49,6 +62,8 @@ class HomeViewController: UIViewController {
     private func registerCells(){
         categoryCollectionView.register(UINib(nibName: CategoryCollectionViewCell.reusueID, bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.reusueID)
         popularCollectionView.register(UINib(nibName: DishPortraitCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier: DishPortraitCollectionViewCell.reuseID)
+        specialsCollectionView.register(UINib(nibName: DishLandscapeCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier:DishLandscapeCollectionViewCell.reuseID)
+        
     }
     
     
@@ -63,8 +78,13 @@ extension HomeViewController : UICollectionViewDataSource{
         switch collectionView{
         case categoryCollectionView :
             return categories.count
+            
         case popularCollectionView  :
             return populars.count
+        
+        case specialsCollectionView :
+            return specials.count
+            
         default :
             return 0
         }
@@ -82,6 +102,12 @@ extension HomeViewController : UICollectionViewDataSource{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishPortraitCollectionViewCell.reuseID, for: indexPath) as! DishPortraitCollectionViewCell
             cell.set(populars[indexPath.item])
             print(populars[indexPath.item])
+            return cell
+        
+        case specialsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishLandscapeCollectionViewCell.reuseID, for: indexPath) as! DishLandscapeCollectionViewCell
+            cell.set(populars[indexPath.item])
+            print(specials[indexPath.item])
             return cell
             
         default :
