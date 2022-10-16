@@ -13,6 +13,9 @@
 		4821D55528FB62A500D2CB91 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D55428FB62A500D2CB91 /* String+Ext.swift */; };
 		4821D55728FB751C00D2CB91 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D55628FB751C00D2CB91 /* HomeViewController.swift */; };
 		4821D55A28FB83ED00D2CB91 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D55928FB83ED00D2CB91 /* CardView.swift */; };
+		4821D55F28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D55D28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift */; };
+		4821D56028FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4821D55E28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib */; };
+		4821D56228FB8BC400D2CB91 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4821D56128FB8BC400D2CB91 /* Dish.swift */; };
 		48364C0028F4C1C600E5DBE6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48364BFF28F4C1C600E5DBE6 /* OnboardingViewController.swift */; };
 		48364C0428F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48364C0328F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift */; };
 		48364C0628F4C28100E5DBE6 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48364C0528F4C28100E5DBE6 /* OnboardingSlide.swift */; };
@@ -33,6 +36,9 @@
 		4821D55428FB62A500D2CB91 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4821D55628FB751C00D2CB91 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4821D55928FB83ED00D2CB91 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		4821D55D28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishPortraitCollectionViewCell.swift; sourceTree = "<group>"; };
+		4821D55E28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishPortraitCollectionViewCell.xib; sourceTree = "<group>"; };
+		4821D56128FB8BC400D2CB91 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		48364BFF28F4C1C600E5DBE6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		48364C0328F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		48364C0528F4C28100E5DBE6 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 			children = (
 				48364C0528F4C28100E5DBE6 /* OnboardingSlide.swift */,
 				4821D55228FB625B00D2CB91 /* DishCategory.swift */,
+				4821D56128FB8BC400D2CB91 /* Dish.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +136,8 @@
 				48364C0328F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift */,
 				4821D54E28FB604E00D2CB91 /* CategoryCollectionViewCell.swift */,
 				4821D54F28FB604E00D2CB91 /* CategoryCollectionViewCell.xib */,
+				4821D55D28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift */,
+				4821D55E28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -244,6 +253,7 @@
 			files = (
 				4821D55128FB604E00D2CB91 /* CategoryCollectionViewCell.xib in Resources */,
 				489AA98028F1E93C00787E3B /* LaunchScreen.storyboard in Resources */,
+				4821D56028FB8A7500D2CB91 /* DishPortraitCollectionViewCell.xib in Resources */,
 				489AA97D28F1E93C00787E3B /* Assets.xcassets in Resources */,
 				489AA97B28F1E93900787E3B /* Main.storyboard in Resources */,
 			);
@@ -309,6 +319,8 @@
 				4821D55028FB604E00D2CB91 /* CategoryCollectionViewCell.swift in Sources */,
 				4821D55A28FB83ED00D2CB91 /* CardView.swift in Sources */,
 				48364C0428F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift in Sources */,
+				4821D56228FB8BC400D2CB91 /* Dish.swift in Sources */,
+				4821D55F28FB8A7500D2CB91 /* DishPortraitCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
