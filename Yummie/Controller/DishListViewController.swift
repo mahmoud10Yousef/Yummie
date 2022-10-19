@@ -48,7 +48,7 @@ extension DishListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DishListTableViewCell.reuseID, for: indexPath) as! DishListTableViewCell
-        cell.set(dishes[indexPath.row])
+        cell.set(dish: dishes[indexPath.row])
         return cell
     }
     
@@ -62,6 +62,5 @@ extension DishListViewController : UITableViewDelegate{
         vc.dish = dishes[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
-    
     
 }

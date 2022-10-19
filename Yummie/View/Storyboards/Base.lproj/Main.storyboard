@@ -331,6 +331,9 @@
                     <navigationItem key="navigationItem" title="Yummie" id="6Et-EE-sPq">
                         <barButtonItem key="rightBarButtonItem" image="cart.circle.fill" catalog="system" id="5nK-vo-zaR">
                             <color key="tintColor" red="0.77014940980000002" green="0.24659338589999999" blue="0.065093047919999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="xSE-3a-Kp0" kind="show" id="Usm-xQ-qDD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -445,6 +448,43 @@
             </objects>
             <point key="canvasLocation" x="2356.521739130435" y="112.5"/>
         </scene>
+        <!--  -->
+        <scene sceneID="iaR-8O-Ar8">
+            <objects>
+                <viewController storyboardIdentifier="OrderListViewController" id="xSE-3a-Kp0" customClass="OrderListViewController" customModule="Yummie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2bZ-Sq-FPE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0jS-ni-Ql9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xSE-3a-Kp0" id="3S6-wR-dK4"/>
+                                    <outlet property="delegate" destination="xSE-3a-Kp0" id="dG5-WB-fkm"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YpT-C8-Xb4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0jS-ni-Ql9" secondAttribute="bottom" id="2mZ-Au-9ng"/>
+                            <constraint firstItem="YpT-C8-Xb4" firstAttribute="trailing" secondItem="0jS-ni-Ql9" secondAttribute="trailing" id="Irt-sg-8vI"/>
+                            <constraint firstItem="0jS-ni-Ql9" firstAttribute="top" secondItem="YpT-C8-Xb4" secondAttribute="top" id="Vdg-3h-R2K"/>
+                            <constraint firstItem="0jS-ni-Ql9" firstAttribute="leading" secondItem="YpT-C8-Xb4" secondAttribute="leading" id="yCF-c5-RH7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="  " id="xjb-Ma-9MD">
+                        <barButtonItem key="backBarButtonItem" title="    " id="LKj-sU-Hup"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="0jS-ni-Ql9" id="Ytb-Fj-pFX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z80-ra-A36" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676.8115942028987" y="820.98214285714278"/>
+        </scene>
         <!--Dish List View Controller-->
         <scene sceneID="m8f-w0-p1e">
             <objects>
@@ -453,7 +493,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bi7-fX-Ote">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bi7-fX-Ote">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -482,11 +522,13 @@
         <!--Navigation Controller-->
         <scene sceneID="Fj5-Rr-wyu">
             <objects>
-                <navigationController storyboardIdentifier="HomeNC" automaticallyAdjustsScrollViewInsets="NO" id="KX5-l2-lWb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNC" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="KX5-l2-lWb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e5m-h6-uTV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

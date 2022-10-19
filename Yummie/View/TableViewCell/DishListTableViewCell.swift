@@ -17,10 +17,16 @@ class DishListTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLbl : UILabel!
     
     
-    func set(_ dish:Dish){
+    func set( dish:Dish){
         dishImageView.kf.setImage(with: dish.image?.asURL)
         dishTitleLBl.text   = dish.name
         descriptionLbl.text = dish.description
+    }
+    
+    func set(order: Order){
+        dishImageView.kf.setImage(with: order.dish?.image?.asURL)
+        dishTitleLBl.text   = order.name
+        descriptionLbl.text = order.dish?.description
     }
     
 }

@@ -32,6 +32,8 @@
 		48BDB98928FF5A0C0008B98F /* DishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB98728FF5A0B0008B98F /* DishListTableViewCell.swift */; };
 		48BDB98A28FF5A0C0008B98F /* DishListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BDB98828FF5A0C0008B98F /* DishListTableViewCell.xib */; };
 		48BDB98C28FF5C7E0008B98F /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */; };
+		48C78F5628FF7983008DB28C /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C78F5528FF7983008DB28C /* OrderListViewController.swift */; };
+		48C78F5828FF7A4A008DB28C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C78F5728FF7A4A008DB28C /* Order.swift */; };
 		DF02BF651AE0C2EAFB7CEA0F /* Pods_Yummie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1D6A4A30C748044A07506D /* Pods_Yummie.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		48BDB98728FF5A0B0008B98F /* DishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListTableViewCell.swift; sourceTree = "<group>"; };
 		48BDB98828FF5A0C0008B98F /* DishListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishListTableViewCell.xib; sourceTree = "<group>"; };
 		48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
+		48C78F5528FF7983008DB28C /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		48C78F5728FF7A4A008DB28C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		8915B6C8248B513CEF39CE70 /* Pods-Yummie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.release.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.release.xcconfig"; sourceTree = "<group>"; };
 		E1EAE4B15A8B97B561C61D77 /* Pods-Yummie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.debug.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,7 @@
 				48364C0528F4C28100E5DBE6 /* OnboardingSlide.swift */,
 				4821D55228FB625B00D2CB91 /* DishCategory.swift */,
 				4821D56128FB8BC400D2CB91 /* Dish.swift */,
+				48C78F5728FF7A4A008DB28C /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				4821D55628FB751C00D2CB91 /* HomeViewController.swift */,
 				4821D56728FBAB4200D2CB91 /* DishDetailViewController.swift */,
 				48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */,
+				48C78F5528FF7983008DB28C /* OrderListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			files = (
 				48BDB98928FF5A0C0008B98F /* DishListTableViewCell.swift in Sources */,
 				4821D55528FB62A500D2CB91 /* String+Ext.swift in Sources */,
+				48C78F5828FF7A4A008DB28C /* Order.swift in Sources */,
 				48BDB98C28FF5C7E0008B98F /* DishListViewController.swift in Sources */,
 				48364C0628F4C28100E5DBE6 /* OnboardingSlide.swift in Sources */,
 				489AA97428F1E93900787E3B /* AppDelegate.swift in Sources */,
@@ -344,6 +351,7 @@
 				489AA97628F1E93900787E3B /* SceneDelegate.swift in Sources */,
 				4821D56528FB9B8F00D2CB91 /* DishLandscapeCollectionViewCell.swift in Sources */,
 				4821D55028FB604E00D2CB91 /* CategoryCollectionViewCell.swift in Sources */,
+				48C78F5628FF7983008DB28C /* OrderListViewController.swift in Sources */,
 				4821D55A28FB83ED00D2CB91 /* CardView.swift in Sources */,
 				48364C0428F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift in Sources */,
 				4821D56228FB8BC400D2CB91 /* Dish.swift in Sources */,
