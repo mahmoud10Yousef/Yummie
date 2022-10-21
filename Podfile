@@ -6,5 +6,6 @@ target 'Yummie' do
 
   # Pods for Yummie
   pod 'Kingfisher'
+  pod 'Alamofire'
 
 end
