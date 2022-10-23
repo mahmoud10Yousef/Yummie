@@ -7,5 +7,6 @@ target 'Yummie' do
   pod 'ProgressHUD'
   pod 'Kingfisher'
   pod 'Alamofire'
+  pod 'IQKeyboardManagerSwift'
 
 end
