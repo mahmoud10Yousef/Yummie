@@ -6,29 +6,20 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class DishListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dishes : [Dish] = [
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20),
-    ]
-    
-    
+    var dishes : [Dish] = []
+    var categoryID : String!
+    let APICaller: DishesAPIProtocol = DishesAPI()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
+        fetchCategoryDishes()
     }
     
     
@@ -36,6 +27,30 @@ class DishListViewController: UIViewController {
         tableView.register(UINib(nibName: DishListTableViewCell.reuseID, bundle: nil), forCellReuseIdentifier: DishListTableViewCell.reuseID)
     }
     
+    
+    private func fetchCategoryDishes(){
+        ProgressHUD.show()
+       
+        APICaller.fetchCategoryDishes(categoryId: categoryID) { [weak self ] result in
+            ProgressHUD.dismiss()
+            
+            guard let self = self else { return }
+            
+            switch result{
+            case .success(let dishes):
+                self.updateUI(dishes: dishes?.data ?? [])
+                
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    private func updateUI(dishes:[Dish]){
+        self.dishes = dishes
+        DispatchQueue.main.async { self.tableView.reloadData() }
+    }
     
 }
 

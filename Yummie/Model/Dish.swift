@@ -16,7 +16,7 @@ struct Dish:Codable{
     let image       : String?
     let calories    : Int?
     
-    var formattedCalories: String {
+    var formattedCalories: String? {
            return "\(calories ?? 0) calories"
        }
     

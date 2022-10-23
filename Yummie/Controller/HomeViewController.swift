@@ -65,7 +65,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
 }
 
 extension HomeViewController: UICollectionViewDelegate{
@@ -73,6 +72,7 @@ extension HomeViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoryCollectionView{
             let vc = DishListViewController.instatiate()
+            vc.categoryID = self.categories[indexPath.item].id
             navigationController?.pushViewController(vc, animated: true)
         }else{
             let controller = DishDetailViewController.instatiate()
