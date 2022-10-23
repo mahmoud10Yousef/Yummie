@@ -16,7 +16,7 @@ protocol DishesAPIProtocol {
     
     func fetchCategoryDishes(categoryId: String, completion: @escaping(Result<BaseResponse<[Dish]>?, NSError>) -> Void)
     
-    func fetchOrders(completion: @escaping(Result<[Order]?, NSError>) -> Void)
+    func fetchOrders(completion: @escaping(Result<BaseResponse<[Order]>?, NSError>) -> Void)
     
 }
 
@@ -43,8 +43,8 @@ class DishesAPI: BaseAPI<DishesNetworking> , DishesAPIProtocol{
     }
     
     
-    func fetchOrders(completion: @escaping (Result<[Order]?, NSError>) -> Void) {
-        self.fetchData(target: .fetchOrders, responseClass: [Order].self) { result in
+    func fetchOrders(completion: @escaping (Result<BaseResponse<[Order]>?, NSError>) -> Void) {
+        self.fetchData(target: .fetchOrders, responseClass: BaseResponse<[Order]>.self) { result in
             completion(result)
         }
     }

@@ -32,6 +32,7 @@ class OnboardingViewController: UIViewController {
         if currentPage < slides.count - 1 {
             scrollToNextSlide()
         } else{
+            UserDefaults.standard.hasOnboarded = true
             navigateToHomeScreen()
         }
     }

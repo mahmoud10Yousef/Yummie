@@ -6,36 +6,53 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class OrderListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let orders: [Order] = [
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
-    ]
+    var orders: [Order] = []
+    let APICaller: DishesAPIProtocol = DishesAPI()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+        fetchOrders()
     }
   
    
-    
     private func registerCells(){
         tableView.register(UINib(nibName: DishListTableViewCell.reuseID, bundle: nil), forCellReuseIdentifier: DishListTableViewCell.reuseID)
         
     }
+   
     
+    private func fetchOrders(){
+        ProgressHUD.show()
+        APICaller.fetchOrders { [weak self] result in
+            
+            ProgressHUD.dismiss()
+            guard let self = self else { return }
+            
+            switch result{
+            case .success(let orders):
+                self.updateUI(orders: orders?.data ?? [])
+                
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    private func updateUI(orders: [Order]){
+        self.orders = orders
+        DispatchQueue.main.async { self.tableView.reloadData() }
+    }
  
+    
 }
 
 extension OrderListViewController: UITableViewDataSource{
