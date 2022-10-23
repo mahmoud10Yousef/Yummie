@@ -16,12 +16,10 @@ enum HTTPMethod : String{
     case delete = "DELETE"
 }
 
-
 enum Task{
     case requestPlain
     case requestparameters(parameters:[String:Any] , encoding:ParameterEncoding)
 }
-
 
 protocol TargetType{
     var baseURL  : String            { get }

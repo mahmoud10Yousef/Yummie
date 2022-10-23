@@ -12,14 +12,14 @@ class OrderListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let orders: [Order] = [
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
-        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
+        .init(id: "id1", name: "mahmoud yousef", dish: .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20)),
     ]
     
     

@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.6.2)
   - Kingfisher (6.3.1)
+  - ProgressHUD (2.70)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - ProgressHUD
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - ProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
 
-PODFILE CHECKSUM: 6ef800ddcc1c5a0225f47eb6f6f2297b7e6167db
+PODFILE CHECKSUM: 3aabc7a903a4583963fda3a81e0d1ad2bc1d4efb
 
 COCOAPODS: 1.11.3

@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Order{
+struct Order:Codable{
     
-    var id   : String?
-    var name : String?
-    var dish : Dish?
+    let id   : String?
+    let name : String?
+    let dish : Dish?
     
 }

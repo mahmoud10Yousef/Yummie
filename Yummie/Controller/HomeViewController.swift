@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class HomeViewController: UIViewController {
     
@@ -13,49 +14,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var popularCollectionView  : UICollectionView!
     @IBOutlet weak var specialsCollectionView : UICollectionView!
     
-    var categories:[DishCategory] = [
-        .init(id: "id 1", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 2", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 3", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 4", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 5", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 5", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 5", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 5", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-        .init(id: "id 5", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
-    ]
+    private let APICaller: DishesAPIProtocol = DishesAPI()
     
-    var populars : [Dish] = [
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-    ]
-    
-    var specials : [Dish] = [
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-        .init(id: "id1", name: "Garri", description: "This is the best i have ever tasted.", image: "https://picsum.photos/100/200", calories: 20.352),
-    ]
+    var categories:[DishCategory] = []
+    var populars : [Dish]         = []
+    var specials : [Dish]         = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
+        fetchAllCategories()
     }
     
     
@@ -64,6 +32,37 @@ class HomeViewController: UIViewController {
         popularCollectionView.register(UINib(nibName: DishPortraitCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier: DishPortraitCollectionViewCell.reuseID)
         specialsCollectionView.register(UINib(nibName: DishLandscapeCollectionViewCell.reuseID, bundle: nil), forCellWithReuseIdentifier:DishLandscapeCollectionViewCell.reuseID)
         
+    }
+    
+    
+    private func fetchAllCategories(){
+        ProgressHUD.show()
+        
+        APICaller.fetchAllCategories { [weak self]result in
+            guard let self = self else { return }
+            ProgressHUD.dismiss()
+            
+            switch result{
+            case .success(let allDishes):
+                self.updateUI(dishes: (allDishes?.data)!)
+                
+            case .failure(let error):
+                ProgressHUD.showError(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    private func updateUI(dishes : AllDishes){
+        self.categories = dishes.categories ?? []
+        self.populars   = dishes.populars ?? []
+        self.specials   = dishes.specials ?? []
+
+        DispatchQueue.main.async {
+            self.categoryCollectionView.reloadData()
+            self.specialsCollectionView.reloadData()
+            self.popularCollectionView.reloadData()
+        }
     }
     
     
@@ -92,7 +91,7 @@ extension HomeViewController : UICollectionViewDataSource{
             
         case popularCollectionView  :
             return populars.count
-        
+            
         case specialsCollectionView :
             return specials.count
             
@@ -108,17 +107,15 @@ extension HomeViewController : UICollectionViewDataSource{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.reusueID, for: indexPath) as! CategoryCollectionViewCell
             cell.set(categories[indexPath.item])
             return cell
-        
+            
         case popularCollectionView :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishPortraitCollectionViewCell.reuseID, for: indexPath) as! DishPortraitCollectionViewCell
             cell.set(populars[indexPath.item])
-            print(populars[indexPath.item])
             return cell
-        
+            
         case specialsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishLandscapeCollectionViewCell.reuseID, for: indexPath) as! DishLandscapeCollectionViewCell
             cell.set(populars[indexPath.item])
-            print(specials[indexPath.item])
             return cell
             
         default :
