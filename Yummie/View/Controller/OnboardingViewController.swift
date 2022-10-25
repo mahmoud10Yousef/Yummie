@@ -13,7 +13,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl    : UIPageControl!
     @IBOutlet weak var nextBtn        : UIButton!
     
-    let slides:[OnboardingSlide] = OnboardingSlide.getSlides()
+    var presenter: OnboardingVCPresenter!
     var currentPage = 0 {
         didSet{
             pageControl.currentPage = currentPage
@@ -24,12 +24,13 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageControl.numberOfPages = slides.count
+        presenter = OnboardingVCPresenter()
+        pageControl.numberOfPages = presenter.getSlidesCount()
     }
     
     
     @IBAction func nextBtnClicked(_ sender: UIButton) {
-        if currentPage < slides.count - 1 {
+        if currentPage < presenter.getSlidesCount() - 1 {
             scrollToNextSlide()
         } else{
             UserDefaults.standard.hasOnboarded = true
@@ -54,7 +55,7 @@ class OnboardingViewController: UIViewController {
     
     
     private func configureNextBtnTitle(){
-        if currentPage < slides.count - 1 {
+        if currentPage < presenter.getSlidesCount() - 1 {
             nextBtn.setTitle("Next", for: .normal)
         }else{
             nextBtn.setTitle("Get Started", for: .normal)
@@ -66,13 +67,13 @@ class OnboardingViewController: UIViewController {
 extension OnboardingViewController : UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        slides.count
+        presenter.getSlidesCount()
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.reusueID, for: indexPath) as! OnboardingCollectionViewCell
-        cell.set(slides[indexPath.item])
+        presenter.configure(cell: cell, for: indexPath.row)
         return cell
     }
     

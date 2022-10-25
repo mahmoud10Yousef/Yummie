@@ -7,8 +7,8 @@
 
 import UIKit
 
-class OnboardingCollectionViewCell: UICollectionViewCell {
-     
+class OnboardingCollectionViewCell: UICollectionViewCell , OnboardingCellView {
+ 
     static let reusueID = String(describing: OnboardingCollectionViewCell.self)
     
     @IBOutlet weak var slideImageView      : UIImageView!
@@ -16,10 +16,19 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var slideDescriptionLbl : UILabel!
     
     
-    func set(_ slide: OnboardingSlide){
-        slideImageView.image     = slide.image
-        slideTitleLbl.text       = slide.title
-        slideDescriptionLbl.text = slide.description
+    func displayTitle(title: String) {
+        slideTitleLbl.text = title
     }
+    
+    
+    func displayDescription(description: String) {
+        slideDescriptionLbl.text = description
+    }
+    
+    
+    func dispalyImage(image: String) {
+        slideImageView.image = UIImage(named: image)
+    }
+   
     
 }

@@ -36,6 +36,7 @@
 		489AA98028F1E93C00787E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489AA97E28F1E93C00787E3B /* LaunchScreen.storyboard */; };
 		48B2EC2E290223DD0086F078 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2EC2D290223DD0086F078 /* TargetType.swift */; };
 		48B2EC31290226860086F078 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2EC30290226860086F078 /* BaseAPI.swift */; };
+		48B8DFD42907E2A700EB8E8A /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8DFD32907E2A700EB8E8A /* OnboardingPresenter.swift */; };
 		48BDB98928FF5A0C0008B98F /* DishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB98728FF5A0B0008B98F /* DishListTableViewCell.swift */; };
 		48BDB98A28FF5A0C0008B98F /* DishListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BDB98828FF5A0C0008B98F /* DishListTableViewCell.xib */; };
 		48BDB98C28FF5C7E0008B98F /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */; };
@@ -77,6 +78,7 @@
 		489AA98128F1E93C00787E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48B2EC2D290223DD0086F078 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		48B2EC30290226860086F078 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		48B8DFD32907E2A700EB8E8A /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		48BDB98728FF5A0B0008B98F /* DishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListTableViewCell.swift; sourceTree = "<group>"; };
 		48BDB98828FF5A0C0008B98F /* DishListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishListTableViewCell.xib; sourceTree = "<group>"; };
 		48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		48364BFB28F4C14900E5DBE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				48364BFC28F4C15100E5DBE6 /* Controller */,
 				48364BFE28F4C16B00E5DBE6 /* Storyboards */,
 				48364C0228F4C20100E5DBE6 /* TableViewCell */,
 				48364C0128F4C1EB00E5DBE6 /* CollectionViewCell */,
@@ -215,9 +218,9 @@
 			children = (
 				48B2EC2A2902239B0086F078 /* Managers */,
 				48364BFD28F4C16200E5DBE6 /* Extensions */,
-				48364BFC28F4C15100E5DBE6 /* Controller */,
-				48364BFB28F4C14900E5DBE6 /* View */,
 				48364BFA28F4C14000E5DBE6 /* Model */,
+				48364BFB28F4C14900E5DBE6 /* View */,
+				48B8DFD22907E26200EB8E8A /* Presenter */,
 				489AA97328F1E93900787E3B /* AppDelegate.swift */,
 				489AA97528F1E93900787E3B /* SceneDelegate.swift */,
 				489AA97C28F1E93C00787E3B /* Assets.xcassets */,
@@ -260,6 +263,14 @@
 				4854F0D629029B11009948BF /* BaseResponse.swift */,
 			);
 			path = DishesNetworking;
+			sourceTree = "<group>";
+		};
+		48B8DFD22907E26200EB8E8A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				48B8DFD32907E2A700EB8E8A /* OnboardingPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		8CE7FBE5D0308EBF8B6AE235 /* Pods */ = {
@@ -401,6 +412,7 @@
 				48364C0828F4C3FC00E5DBE6 /* UIView+Ext.swift in Sources */,
 				4821D55328FB625B00D2CB91 /* DishCategory.swift in Sources */,
 				4821D55728FB751C00D2CB91 /* HomeViewController.swift in Sources */,
+				48B8DFD42907E2A700EB8E8A /* OnboardingPresenter.swift in Sources */,
 				4821D56828FBAB4200D2CB91 /* DishDetailViewController.swift in Sources */,
 				4854F0D329028F3A009948BF /* AllDishes.swift in Sources */,
 				48364C0028F4C1C600E5DBE6 /* OnboardingViewController.swift in Sources */,
