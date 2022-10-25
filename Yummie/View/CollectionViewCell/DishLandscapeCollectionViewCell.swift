@@ -7,8 +7,8 @@
 
 import UIKit
 import Kingfisher
-class DishLandscapeCollectionViewCell: UICollectionViewCell {
-
+class DishLandscapeCollectionViewCell: UICollectionViewCell , DishCellView {
+    
     static let reuseID = String(describing: DishLandscapeCollectionViewCell.self)
     
     @IBOutlet weak var dishImageView  : UIImageView!
@@ -16,10 +16,24 @@ class DishLandscapeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var caloriesLbl    : UILabel!
     @IBOutlet weak var descriptionLbl : UILabel!
     
-    func set(_ dish:Dish){
-        dishImageView.kf.setImage(with: dish.image?.asURL)
-        titleLbl.text       = dish.name
-        caloriesLbl.text    = dish.formattedCalories
-        descriptionLbl.text = dish.description
+    
+    func displayTitle(title: String) {
+        titleLbl.text = title
     }
+    
+    
+    func displayImage(url: String) {
+        dishImageView.kf.setImage(with: url.asURL)
+    }
+    
+    
+    func dispalyCalories(calories: String){
+        caloriesLbl.text = calories
+    }
+    
+    
+    func displayDescription(description: String) {
+        descriptionLbl.text = description
+    }
+    
 }

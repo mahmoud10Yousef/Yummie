@@ -37,6 +37,8 @@
 		48B2EC2E290223DD0086F078 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2EC2D290223DD0086F078 /* TargetType.swift */; };
 		48B2EC31290226860086F078 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2EC30290226860086F078 /* BaseAPI.swift */; };
 		48B8DFD42907E2A700EB8E8A /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8DFD32907E2A700EB8E8A /* OnboardingPresenter.swift */; };
+		48B8DFD62907E8EE00EB8E8A /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8DFD52907E8EE00EB8E8A /* BaseViewProtocol.swift */; };
+		48B8DFD82907E96400EB8E8A /* HomeVCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8DFD72907E96400EB8E8A /* HomeVCPresenter.swift */; };
 		48BDB98928FF5A0C0008B98F /* DishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB98728FF5A0B0008B98F /* DishListTableViewCell.swift */; };
 		48BDB98A28FF5A0C0008B98F /* DishListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48BDB98828FF5A0C0008B98F /* DishListTableViewCell.xib */; };
 		48BDB98C28FF5C7E0008B98F /* DishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */; };
@@ -79,6 +81,8 @@
 		48B2EC2D290223DD0086F078 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		48B2EC30290226860086F078 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		48B8DFD32907E2A700EB8E8A /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		48B8DFD52907E8EE00EB8E8A /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		48B8DFD72907E96400EB8E8A /* HomeVCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCPresenter.swift; sourceTree = "<group>"; };
 		48BDB98728FF5A0B0008B98F /* DishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListTableViewCell.swift; sourceTree = "<group>"; };
 		48BDB98828FF5A0C0008B98F /* DishListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishListTableViewCell.xib; sourceTree = "<group>"; };
 		48BDB98B28FF5C7E0008B98F /* DishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishListViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				48B8DFD32907E2A700EB8E8A /* OnboardingPresenter.swift */,
+				48B8DFD52907E8EE00EB8E8A /* BaseViewProtocol.swift */,
+				48B8DFD72907E96400EB8E8A /* HomeVCPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 				48B2EC2E290223DD0086F078 /* TargetType.swift in Sources */,
 				48364C0828F4C3FC00E5DBE6 /* UIView+Ext.swift in Sources */,
 				4821D55328FB625B00D2CB91 /* DishCategory.swift in Sources */,
+				48B8DFD62907E8EE00EB8E8A /* BaseViewProtocol.swift in Sources */,
 				4821D55728FB751C00D2CB91 /* HomeViewController.swift in Sources */,
 				48B8DFD42907E2A700EB8E8A /* OnboardingPresenter.swift in Sources */,
 				4821D56828FBAB4200D2CB91 /* DishDetailViewController.swift in Sources */,
@@ -422,6 +429,7 @@
 				4854F0D129028945009948BF /* DishesNetworking.swift in Sources */,
 				4821D55028FB604E00D2CB91 /* CategoryCollectionViewCell.swift in Sources */,
 				48C78F5628FF7983008DB28C /* OrderListViewController.swift in Sources */,
+				48B8DFD82907E96400EB8E8A /* HomeVCPresenter.swift in Sources */,
 				4821D55A28FB83ED00D2CB91 /* CardView.swift in Sources */,
 				48B2EC31290226860086F078 /* BaseAPI.swift in Sources */,
 				48364C0428F4C24100E5DBE6 /* OnboardingCollectionViewCell.swift in Sources */,

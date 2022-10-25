@@ -8,17 +8,20 @@
 import UIKit
 import Kingfisher
 
-class CategoryCollectionViewCell: UICollectionViewCell {
-    
+class CategoryCollectionViewCell: UICollectionViewCell ,DishCellView {
+   
     static let reusueID = String(describing: CategoryCollectionViewCell.self)
     
     @IBOutlet weak var categoryImageView : UIImageView!
     @IBOutlet weak var categoryTitleLbl  : UILabel!
     
     
-    func set(_ dish: DishCategory){
-        categoryImageView.kf.setImage(with: dish.image?.asURL)
-        categoryTitleLbl.text = dish.name
+    func displayTitle(title: String) {
+        categoryTitleLbl.text = title
+    }
+        
+    func displayImage(url: String) {
+        categoryImageView.kf.setImage(with: url.asURL)
     }
     
 }

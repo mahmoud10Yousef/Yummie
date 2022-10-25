@@ -9,21 +9,18 @@ import UIKit
 import ProgressHUD
 
 class HomeViewController: UIViewController {
-    
+ 
     @IBOutlet weak var categoryCollectionView : UICollectionView!
     @IBOutlet weak var popularCollectionView  : UICollectionView!
     @IBOutlet weak var specialsCollectionView : UICollectionView!
     
-    private let APICaller: DishesAPIProtocol = DishesAPI()
-    
-    var categories:[DishCategory] = []
-    var populars : [Dish]         = []
-    var specials : [Dish]         = []
+    var presenter:HomeVCPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        fetchAllCategories()
+        presenter = HomeVCPresenter(view: self)
+        presenter.viewDidLoad()
     }
     
     
@@ -34,66 +31,65 @@ class HomeViewController: UIViewController {
         
     }
     
+}
+
+
+extension HomeViewController : HomeView{
     
-    private func fetchAllCategories(){
+    func showLoadingView() {
         ProgressHUD.show()
-        
-        APICaller.fetchAllCategories { [weak self]result in
-            guard let self = self else { return }
-            ProgressHUD.dismiss()
-            
-            switch result{
-            case .success(let allDishes):
-                self.updateUI(dishes: (allDishes?.data)!)
-                
-            case .failure(let error):
-                ProgressHUD.showError(error.localizedDescription)
-            }
+    }
+    
+    
+    func hideLoadingView() {
+        ProgressHUD.dismiss()
+    }
+    
+    
+    func fetchingDataSuccessfully() {
+        DispatchQueue.main.async {
+            self.categoryCollectionView.reloadData()
+            self.popularCollectionView.reloadData()
+            self.specialsCollectionView.reloadData()
         }
     }
     
     
-    private func updateUI(dishes : AllDishes){
-        self.categories = dishes.categories ?? []
-        self.populars   = dishes.populars ?? []
-        self.specials   = dishes.specials ?? []
-
-        DispatchQueue.main.async {
-            self.categoryCollectionView.reloadData()
-            self.specialsCollectionView.reloadData()
-            self.popularCollectionView.reloadData()
-        }
+    func showError(error: String) {
+        ProgressHUD.showError(error)
     }
     
 }
+
 
 extension HomeViewController: UICollectionViewDelegate{
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == categoryCollectionView{
-            let vc = DishListViewController.instatiate()
-            vc.categoryID = self.categories[indexPath.item].id
-            navigationController?.pushViewController(vc, animated: true)
-        }else{
-            let controller = DishDetailViewController.instatiate()
-            let dish = collectionView == specialsCollectionView ? specials[indexPath.item] : populars[indexPath.item]
-            controller.dish = dish
-            self.navigationController?.pushViewController(controller, animated: true)
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        if collectionView == categoryCollectionView{
+//            let vc = DishListViewController.instatiate()
+//            vc.categoryID = self.categories[indexPath.item].id
+//            navigationController?.pushViewController(vc, animated: true)
+//        }else{
+//            let controller = DishDetailViewController.instatiate()
+//            let dish = collectionView == specialsCollectionView ? specials[indexPath.item] : populars[indexPath.item]
+//            controller.dish = dish
+//            self.navigationController?.pushViewController(controller, animated: true)
+//        }
+//    }
 }
 
 extension HomeViewController : UICollectionViewDataSource{
+   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView{
         case categoryCollectionView :
-            return categories.count
+            return presenter.getCountFor(section: .categories)
             
         case popularCollectionView  :
-            return populars.count
+            return presenter.getCountFor(section: .populars)
             
         case specialsCollectionView :
-            return specials.count
+            return presenter.getCountFor(section: .specials)
             
         default :
             return 0
@@ -105,17 +101,17 @@ extension HomeViewController : UICollectionViewDataSource{
         switch collectionView {
         case categoryCollectionView :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.reusueID, for: indexPath) as! CategoryCollectionViewCell
-            cell.set(categories[indexPath.item])
+            presenter.configure(cell: cell, for: indexPath.row)
             return cell
             
         case popularCollectionView :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishPortraitCollectionViewCell.reuseID, for: indexPath) as! DishPortraitCollectionViewCell
-            cell.set(populars[indexPath.item])
+            presenter.configure(cell: cell, for: indexPath.row, section: .populars)
             return cell
             
         case specialsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishLandscapeCollectionViewCell.reuseID, for: indexPath) as! DishLandscapeCollectionViewCell
-            cell.set(populars[indexPath.item])
+            presenter.configure(cell: cell, for: indexPath.row, section: .specials)
             return cell
             
         default :
